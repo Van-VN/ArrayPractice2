@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h2>Bài 1: Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn, in ra các phần tử trong mảng.
+    Chú ý: Sử dụng vòng lặp for lồng nhau</h2>
+<button onclick="draw2dArray()">Bấm để bắt đầu bài 1</button>
+<h2>Bài 2: Viết một chương trình để in các ký tự trong một mảng theo thứ tự đảo ngược.
+    Ví dụ, nếu một mảng chứa các ký tự [ 'c', 's', 'c', '2', '6', '1' ] sau khi thực hiện đảo ngược sẽ là "162csc"</h2>
+<button onclick="reverseArrayPrint()">Bấm để bắt đầu bài 2</button>
+<h2>Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng. Chương trình này đếm số ký tự số trong
+    mảng.</h2>
+<button onclick="numCountinArray()">Bấm để bắt đầu bài 3</button>
+<h2>Bài 4: Viết một chương trình để đếm số từ trong một chuỗi</h2>
+<button onclick="stringCharCounter()">Bấm để bắt đầu bài 4</button>
+<h2>Bài 5: Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.</h2>
+<button onclick="stringCompare()">Bấm để bắt đầu bài 5</button>
+<h2>Bài 6: Viết chương trình nhập vào một mảng ký tự, tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này
+    bởi ký tự ( _ )</h2>
+<button onclick="dashToUnder()">Bấm để bắt đầu bài 6</button>
+</body>
+</html>
+
+<script>
+
+    // Bài 1
+    function draw2dArray() {
+        let arr = [
+            [1, 2, 1, 24],
+            [8, 11, 9, 4],
+            [7, 0, 7, 27],
+            [7, 4, 28, 14],
+            [3, 10, 26, 7]
+        ];
+
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[j].length; j++) {
+                document.write(arr[i][j] + '&nbsp;&nbsp;&nbsp;&nbsp;');
+            }
+            document.write('<br><br>');
+        }
+    }
+
+    // Bài 2
+    function reverseArrayPrint() {
+        let arr = [];
+        for (let i = 0; i < 10; i++) {
+            let num = prompt(`Nhập số để cho vào Array, còn ${10 - i} lần nhập: `)
+            arr.push(num);
+        }
+        alert(`Array đã tạo là [${arr}], đang đảo ngược vị trí Array...`)
+        alert(`Chuỗi mới được tạo từ Array đã nhập là: \'${arr.reverse().join("")}\'`)
+    }
+
+    // Bài 3
+    function numCountinArray() {
+        let counter = 0;
+        let arr = [];
+        let arrLen = +prompt("Nhập số kí tự muốn nhập vào Array: ")
+        for (let i = 0; i < arrLen; i++) {
+            let inputArr = prompt(`Nhập dữ liệu muốn truyền vào Array, còn ${arrLen - i} lần nhập...`)
+            arr.push(inputArr);
+        }
+        for (let j = 0; j < arr.length; j++) {
+            if (isNaN(arr[j]) === false) {
+                counter++
+            }
+        }
+        alert(`Trong Array đã nhập [${arr}] có ${counter} số`)
+    }
+
+    // Bài 4
+
+    function stringCharCounter() {
+        let str = prompt("Nhập vào một chuỗi")
+        let arr = str.split(' ');
+        alert(`Chuỗi \"${str}\" vừa nhập có ${arr.length} từ.`)
+    }
+
+    // Bài 5
+    function stringCompare() {
+        let stringA = prompt("Nhập vào chuỗi thứ nhất: ")
+        let stringB = prompt("Nhập vào chuỗi thứ hai: ")
+        if (stringA === stringB) {
+            alert("Hai chuỗi vừa nhập giống nhau");
+        } else {
+            alert('Hai chuỗi vừa nhập không giống nhau');
+        }
+    }
+
+    // Bài 6
+    function dashToUnder() {
+        let inputString = prompt('Nhập vào một chuỗi kí tự');
+        let arr = inputString.split('');
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === "-") {
+                arr[i] = "_";
+            }
+        }
+        alert(`Chuỗi được nhập là: \n \"${inputString}\" \n\n Chuỗi sau khi đổi các kí tự - thành _ là: \n \"${arr.join('')}\"`);
+    }
+</script>
+
+<!--Bài 1: Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn,  in ra các phần tử trong mảng. Chú ý: Sử dụng vòng lặp for lồng nhau-->
+<!--Bài 2: Viết một chương trình để in các ký tự trong một mảng theo thứ tự đảo ngược. -->
+<!--Ví dụ, nếu một mảng chứa các ký tự  [ 'c', 's', 'c', '2', '6', '1' ] sau khi thực hiện đảo ngược sẽ là "162csc"-->
+<!--Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng. Chương trình này đếm số ký tự số trong mảng.-->
+<!--Bài 4: Viết một chương trình để đếm số từ trong một chuỗi-->
+<!--Bài 5: Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.-->
+<!--Bài 6: Viết chương trình nhập vào một mảng ký tự, tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này bởi ký tự ( _ )-->
